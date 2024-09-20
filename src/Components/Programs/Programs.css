@@ -1,20 +1,59 @@
-.programs{
+/* Programs.css */
+
+.programs {
     margin: 80px auto;
     width: 90%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* Center carousel */
+    flex-direction: column;  /* Stack elements vertically */
 }
-.program img{
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* Make carousel take full width */
+    position: relative; /* Position relative for arrows */
+}
+
+.image-container {
+    flex-grow: 1;
+    overflow: hidden; /* Hide overflow */
+    position: relative;
+}
+
+.image-set {
+    display: flex;
+    transition: transform 0.5s ease; /* Smooth transition */
+}
+
+.image-item {
+    width: 25%; /* Four images per set, so each takes 25% */
+    text-align: center; /* Center align content */
+    position: relative; /* For caption positioning */
+    margin-bottom: 20px; /* Space below images */
+    padding: 0 10px; /* Space between images horizontally */
+}
+
+.image-container img {
     width: 100%;
     border-radius: 10px;
     display: block;
 }
-.program{
-    flex-basis: 31%;
-    position: relative;
+
+.arrow {
+    cursor: pointer;
+    color: #ffcc00; /* Change arrow color */
+    font-size: 24px; /* Size of the arrow */
+    transition: color 0.3s; /* Smooth transition for color change */
 }
-.caption{
+
+.arrow:hover {
+    color: #ffaa00; /* Darken arrow color on hover */
+}
+
+.caption {
     border-radius: 10px;
     position: absolute;
     top: 0;
@@ -27,27 +66,53 @@
     justify-content: center;
     flex-direction: column;
     color: #fff;
-    cursor: pointer;
     opacity: 0;
     padding-top: 70%;
     transition: 0.4s;
 }
-.caption img{
+
+.caption img {
     width: 60px;
     margin-bottom: 10px;
 }
-.program:hover .caption{
+
+.image-item:hover .caption {
     opacity: 1;
     padding-top: 0;
 }
+
+.dots {
+    display: flex;
+    justify-content: center; /* Center dots */
+    margin-top: 10px; /* Space above dots */
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #717171;
+}
+
 /* -------- media query ----- */
 
-@media (max-width: 650px){
-    .programs{
+@media (max-width: 650px) {
+    .programs {
         flex-direction: column;
     }
-    .program{
-        flex-basis: 100%;
-        margin: 20px;
+    .carousel {
+        flex-direction: column; /* Stack arrows and image */
+        align-items: center; /* Center content */
+    }
+    .arrow {
+        width: 100%; /* Full width arrows on small screens */
+        margin: 5px 0; /* Margin between arrows */
     }
 }

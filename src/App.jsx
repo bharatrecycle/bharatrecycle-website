@@ -19,7 +19,7 @@ const App = () => {
      <Navbar/>
      <Hero/>
      <div className="container">
-        <Title title='OUR PRODUCT LINES'/>
+        <Title title='Rubber Tiles'/>
         <Programs/>
         <About setPlayState={setPlayState}/>
         <Title title='OUR PARTNERS'/>
